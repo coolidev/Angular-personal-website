@@ -1,0 +1,36 @@
+<div class="section" id="education">
+  <div class="container cc-education">
+    <div class="h4 text-center mb-4 title">Education</div>
+    <div class="card" *ngFor="let education of educations">
+      <div class="row">
+        <div
+          class="col-md-3 bg-primary"
+          data-aos="fade-right"
+          data-aos-offset="50"
+          data-aos-duration="500"
+        >
+          <div class="card-body cc-education-header">
+            <p>{{ education.from_to_year}}</p>
+            <div class="h5">{{ education.education }}</div>
+          </div>
+        </div>
+        <div
+          class="col-md-9"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-duration="500"
+        >
+          <div class="card-body">
+            <div class="h5">{{ education.stream }}</div>
+            <h4 class="category">{{ education.institution }}</h4>
+            <ul>
+              <li *ngFor="let m of education.info | split">
+                {{ m }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

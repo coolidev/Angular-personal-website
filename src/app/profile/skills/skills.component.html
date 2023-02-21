@@ -1,0 +1,17 @@
+<div class="section" id="skill">
+  <div class="container">
+    <div class="h4 text-center mb-4 title">Skills</div>
+    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+      <div class="card-body">
+        <div class="skill-panel">
+          <div class="skill-card" *ngFor="let skill of skills">
+            <div>
+              <img src="{{ skill.image }}" alt="nodejs" width="60" height="60" />
+            </div>
+            <span>{{ skill.skill }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

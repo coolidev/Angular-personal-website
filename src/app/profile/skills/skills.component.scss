@@ -1,0 +1,70 @@
+.card-body .skill-panel {
+  display: grid;
+  -webkit-box-pack: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 40px;
+  max-width: 1300px;
+  margin: 20px auto;
+}
+
+.card-body .skill-panel > .skill-card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 3px;
+  // color: rgb(255, 0, 0);
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card-body .skill-panel > .skill-card > div:first-child {
+  display:inline-block;
+  max-width:100%;
+  overflow:hidden;
+  position:relative;
+  box-sizing:border-box;
+  z-index: 11;
+  margin:0
+}
+
+.card-body .skill-panel > .skill-card > span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+  z-index: 10;
+}
+
+@keyframes mymove {
+  0% {left: -75px;}
+  50% {left: 100%;}
+  100% {left: -75px;}
+}
+
+.card-body .skill-panel > .skill-card::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 150%;
+  background-color: #00334d;
+  animation: 6s ease-in-out 0s infinite normal none running mymove;
+}
+
+.card-body .skill-panel > .skill-card::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  inset: 3px;
+  border-radius: 10px;
+  z-index: 1;
+}
