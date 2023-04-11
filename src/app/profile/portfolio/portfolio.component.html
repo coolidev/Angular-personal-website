@@ -1,54 +1,42 @@
 <div class="section" id="portfolio">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 ml-auto mr-auto">
-        <div class="h4 text-center mb-4 title">Portfolio</div>
-        <div class="nav-align-center">
-          <ul class="nav nav-pills nav-pills-primary" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#web-development" role="tablist">
-                <img src="assets/images/portfolios/categories/laptop.svg" alt="laptop" style="margin-top: 1rem;" />
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#app-development" role="tablist">
-                <img src="assets/images/portfolios/categories/mobile.svg" alt="mobile" style="margin-top: 1rem;" />
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#blockchain-development" role="tablist">
-                <img src="assets/images/portfolios/categories/ethereum.svg" alt="ethereum" style="margin-top: 1rem;" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="h4 text-center mb-4 title">Portfolio</div>
     <div class="tab-content gallery mt-5">
-      <div class="tab-pane active" id="web-development">
+      <div class="tab-pane active">
         <div class="ml-auto mr-auto">
           <div class="row">
-            <ng-container *ngFor="let item of portfolioList | paginate: config">
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                  <figure class="cc-effect">
-                    <img src="{{ item.imgUrl }}" alt="{{ item.imgAlt }}" />
-                    <figcaption>
-                      <div class="h4">{{ item.title }}</div>
-                      <p>{{ item.category }}</p>
-                      <p>{{ item.skills }}</p>
-                    </figcaption>
-                  </figure>
+            <ng-container *ngFor="let item of getPortfolioData() | paginate: config">
+              <div class="col-md-6 col-sm-12 project-{{ item.id }}" id="project_{{ item._key }}">
+                <div class="card text-center">
+                  <div class="card-header">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                  </div>
+                  <div class="project-image" style="background-image: url('{{ imageUrl(item.preview) }}');">
+                    <!-- <img src="{{ imageUrl(item.preview) }}" width="100%" alt="{{ item.name }}" /> -->
+                  </div>
+                  <div class="card-footer">
+                    <p class="card-text">{{ item.desc }}</p>
+                    <p>
+                      <kbd *ngFor="let skill of item.skills">
+                        {{ skill }}
+                      </kbd>
+                    </p>
+                    <div class="nav">
+                      <a class="nav-link btn btn-sm" target="_blank" *ngIf="item.demo !== null" href="{{ item.demo }}">Demo</a>
+                      <a class="nav-link btn btn-sm" target="_blank" *ngIf="item.source !== null" href="{{ item.source }}">Source</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </ng-container>
           </div>
           <pagination-controls
+            previousLabel=""
+            nextLabel=""
             (pageChange)="pageChanged($event)"
           ></pagination-controls>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

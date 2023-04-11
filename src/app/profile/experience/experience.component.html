@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="timeline-centered">
             <article
-              *ngFor="let exp of workexp"
+              *ngFor="let career of getHistory()"
               class="timeline-entry animate-box"
               data-animate-effect="fadeInLeft"
             >
@@ -17,15 +17,11 @@
 
                 <div class="timeline-label">
                   <h2>
-                    {{ exp.company
-                    }}<span
-                      >- &nbsp;{{ exp.timeline }}, {{ exp.location }}</span
-                    >
+                    {{ career.companyName }}<span>{{ career.duration.from }} ~ {{ career.duration.to }}, {{ career.workStyle }}</span>
                   </h2>
-                  <h4>{{ exp.role }}</h4>
-
+                  <h4>{{ career.position }}</h4>
                   <ul>
-                    <li *ngFor="let work of exp.work | split">{{ work }}</li>
+                    <li *ngFor="let comment of career.comments">{{ comment }}</li>
                   </ul>
                 </div>
               </div>

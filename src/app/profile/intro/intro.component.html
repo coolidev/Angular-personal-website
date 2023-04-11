@@ -4,17 +4,18 @@
       <div
         class="page-header-image"
         data-parallax="true"
-        style="background-image: url('assets/images/intro.png'); background-size: contain; background-repeat: repeat-x;"
+        *ngIf="getConfig().background"
+        style="background-image: url('{{ imageUrl(getConfig().background) }}'); background-size: cover;"
       ></div>
       <div class="container">
         <div class="content-center">
-          <div class="cc-profile-image">
+          <div class="cc-profile-image" *ngIf="getConfig().avatar">
             <a href="#">
-              <img src="assets/images/avatar.png" alt="Image" />
+              <img src="{{ imageUrl(getConfig().avatar) }}" alt="Image" />
             </a>
           </div>
-          <h1 class="h2 title">Yueming</h1>
-          <p class="category text-white">Blockchain / Full Stack Developer</p>
+          <h1 class="h2 title">{{ data.name }}</h1>
+          <p class="category text-white">{{ data.subtitle }}</p>
           <a
             class="btn btn-primary smooth-scroll mr-2"
             href="#contact"
@@ -22,14 +23,6 @@
             data-aos-anchor="data-aos-anchor"
             >Contact Me</a
           >
-          <!-- <a
-            class="btn btn-primary"
-            href="{{ cvUrl }}"
-            target="_blank"
-            data-aos="zoom-in"
-            data-aos-anchor="data-aos-anchor"
-            >Download CV</a
-          > -->
         </div>
       </div>
       <div class="section">
@@ -37,7 +30,7 @@
           <div class="button-container">
             <a
               class="btn btn-default btn-round btn-lg btn-icon"
-              href="https://www.linkedin.com/in/jgoodidea/"
+              href="{{ getContactInfo()?.ln }}"
               target="_blank"
               rel="tooltip"
               title="Follow me on Linkedin"
@@ -46,22 +39,22 @@
             </a>
             <a
               class="btn btn-default btn-round btn-lg btn-icon"
-              href="https://github.com/gitproman0211"
+              href="{{ getContactInfo()?.git }}"
               target="_blank"
               rel="tooltip"
               title="Follow me on Github"
             >
               <i class="fa fa-github"></i>
             </a>
-            <a
+            <!-- <a
               class="btn btn-default btn-round btn-lg btn-icon"
-              href="https://twitter.com/jGoodIdea"
+              href="{{ getContactInfo()?.tw }}"
               target="_blank"
               rel="tooltip"
               title="Follow me on Twitter"
             >
               <i class="fa fa-twitter"></i>
-            </a>
+            </a> -->
             <a
               class="btn btn-default btn-round btn-lg btn-icon"
               href="#"

@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  SANITY_PROJECT_ID:"hf9j63to",
+  SANITY_DATASET:"production",
+  SANITY_API_VERSION:"2022-11-15",
+  SANITY_PROJECT_TITLE:"BackPortfolio",
 };
 
 /*

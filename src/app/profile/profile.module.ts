@@ -9,16 +9,13 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ExperienceComponent } from './experience/experience.component';
-import { EducationComponent } from './education/education.component';
-import { ReferenceComponent } from './reference/reference.component';
-import { ViewAsComponent } from './viewas/viewas.component';
 import { ContactComponent } from './contact/contact.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SplitPipe } from './split.pipe';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgxPaginationModule],
+  imports: [CommonModule, FormsModule, NgxPaginationModule, NgxSpinnerModule],
   declarations: [
     ProfileComponent,
     HeaderComponent,
@@ -28,11 +25,7 @@ import { SplitPipe } from './split.pipe';
     SkillsComponent,
     PortfolioComponent,
     ExperienceComponent,
-    EducationComponent,
-    ReferenceComponent,
-    ViewAsComponent,
     ContactComponent,
-    ProjectsComponent,
     SplitPipe,
   ],
 })

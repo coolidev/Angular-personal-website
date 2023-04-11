@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports":true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -17,6 +18,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"],
     "module": "es2020",
     "lib": [
       "es2020",

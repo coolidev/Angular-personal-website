@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
+import { Employee } from '../profile.queries';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss'],
 })
-export class ExperienceComponent implements OnInit {
-  workexp: any;
+export class ExperienceComponent {
+  @Input() data: Partial<Employee> = {};
 
-  constructor(private profileService: ProfileService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.workexp = this.profileService.exprience();
+  getHistory() {
+    return this.data.history
   }
 }

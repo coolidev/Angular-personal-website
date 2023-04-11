@@ -114,17 +114,17 @@
                 </div>
                 <div class="col-md-6">
                   <div class="card-body">
-                    <p class="mb-0">
-                      <strong>Email</strong>
+                    <p class="mt-2" *ngIf="getContactInfo()?.mail !== undefined && getContactInfo()?.mail !== null">
+                      <strong><a href="{{ getContactInfo()?.mail }}">Email</a></strong>
                     </p>
-                    <p>
-                      <a href="mailto:gloproman0211@gmail.com">gloproman0211@gmail.com</a>
+                    <p class="mt-2" *ngIf="getContactInfo()?.ln !== undefined && getContactInfo()?.ln !== null">
+                      <strong><a href="{{ getContactInfo()?.ln }}">LinkedIn</a></strong>
                     </p>
-                    <p class="mb-0">
-                      <strong>Telegram</strong>
+                    <p class="mt-2" *ngIf="getContactInfo()?.te !== undefined && getContactInfo()?.te !== null">
+                      <strong><a href="{{ getContactInfo()?.te }}">Telegram</a></strong>
                     </p>
-                    <p>
-                      <a href="https://t.me/jGoodIdea">JGoodIdea</a>
+                    <p class="mt-2" *ngIf="getContactInfo()?.tw !== undefined && getContactInfo()?.tw !== null">
+                      <strong><a href="{{ getContactInfo()?.tw }}">Twitter</a></strong>
                     </p>
                   </div>
                   <div class="">

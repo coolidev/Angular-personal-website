@@ -12,3 +12,11 @@ div,p,h1,h2,h3,h4,h5,h6,li,span{
   font-size: 19px;
   font-weight: bold;
 }
+
+.tooltip > .arrow::before {
+  border-top-color: #00334d !important;
+}
+.tooltip > .tooltip-inner {
+  background-color: #00334d !important;
+  color: white !important;
+}

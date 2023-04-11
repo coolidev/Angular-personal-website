@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Employee } from '../profile.queries';
 import { ProfileService } from '../profile.service';
 
 @Component({
@@ -6,11 +7,23 @@ import { ProfileService } from '../profile.service';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss'],
 })
-export class IntroComponent implements OnInit {
-  cvUrl: any;
-  constructor(private profileService: ProfileService) {}
+export class IntroComponent {
+  imageUrl: any;
 
-  ngOnInit() {
-    this.cvUrl = this.profileService.resumeurl;
+  @Input() data: Partial<Employee> = {};
+
+  constructor(private profileService: ProfileService) {
+    this.imageUrl = this.profileService.imageUrl
+  }
+
+  getConfig() {
+    return {
+      avatar: this.data.avatar,
+      background: this.data.background
+    }
+  }
+  
+  getContactInfo() {
+    return this.data.contactInfo;
   }
 }
