@@ -17,7 +17,7 @@
 
                 <div class="timeline-label">
                   <h2>
-                    {{ career.companyName }}<span>{{ career.duration.from }} ~ {{ career.duration.to }}, {{ career.workStyle }}</span>
+                    {{ career.companyName }}<span>{{ getDuration(career.duration) }}, {{ career.workStyle }}</span>
                   </h2>
                   <h4>{{ career.position }}</h4>
                   <ul>

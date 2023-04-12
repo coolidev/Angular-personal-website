@@ -15,4 +15,20 @@ export class ExperienceComponent {
   getHistory() {
     return this.data.history
   }
+
+  getDuration(duration: any) {
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let durationString = '';
+    if (duration.from !== undefined) {
+      const fromDate = new Date(duration.from)
+      durationString = durationString + `${monthNames[fromDate.getMonth()]}, ${fromDate.getFullYear()} ~ `
+    }
+    if (duration.to !== undefined) {
+      const endDate = new Date(duration.to)
+      durationString = durationString + `${monthNames[endDate.getMonth()]}, ${endDate.getFullYear()}`
+    } else {
+      durationString = durationString + "Present"
+    }
+    return durationString
+  }
 }
