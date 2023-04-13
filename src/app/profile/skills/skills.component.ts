@@ -10,6 +10,7 @@ import { Employee } from '../profile.queries';
 export class SkillsComponent {
   imageUrl: any;
   currentSkill: string;
+  timer: any;
 
   @Input() data: Partial<Employee> = {};
 
@@ -23,6 +24,13 @@ export class SkillsComponent {
   }
 
   setCurrent(data: string)  {
-    this.currentSkill = data;
+    if (data !== '') {
+      this.currentSkill = data;
+      clearTimeout(this.timer)
+    } else {
+      this.timer = setTimeout(() => {
+        this.currentSkill = data;
+      }, 1000)
+    }
   }
 }
