@@ -7,14 +7,14 @@ const preview = groq`
   name,
   subtitle,
   summary,
-  skills,
-  "projects": projects[]{
+  "skills": skills[]->{image, name},
+  "projects": projects[]->{
     id,
     _key,
     name,
     desc,
     preview,
-    skills[],
+    "skills": skills[]->name,
     demo,
     source
   },
@@ -29,7 +29,7 @@ const preview = groq`
 `
 
 export const indexQuery = groq`
-*[_type == "user" && _id == "84e9e9bf-152f-40d9-bbc3-1b88a5710008"] | order(_updatedAt desc) {
+*[_type == "user" && _id == "84e9e9bf-152f-40d9-bbc3-1b88a5710008"] | order(_createdAt desc) {
   ${preview}
 }
 `
