@@ -15,19 +15,23 @@ export class PortfolioComponent implements OnChanges {
 
   constructor(private profileService: ProfileService) {
     this.imageUrl = this.profileService.imageUrl
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.setConfig(changes["data"].currentValue);
-  }
-
-  setConfig(change: Partial<Employee>) {
     this.config = {
       itemsPerPage: 4,
       currentPage: 1,
-      totalItems: change.projects?.length
     }
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // this.setConfig(changes["data"].currentValue);
+  }
+
+  // setConfig(change: Partial<Employee>) {
+  //   this.config = {
+  //     itemsPerPage: 4,
+  //     currentPage: 1,
+  //     totalItems: change.projects?.length
+  //   }
+  // }
 
   getPortfolioData(): any {
     return this.data.projects;
