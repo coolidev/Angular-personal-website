@@ -1,11 +1,26 @@
 <app-header></app-header>
 <div class="page-content">
-  <app-intro [data]="getIntroData()"></app-intro>
-  <app-about [data]="getAboutData()"></app-about>
-  <app-skills [data]="getSkills()"></app-skills>
-  <app-portfolio [data]="getPortfolioData()"></app-portfolio>
-  <app-experience [data]="getHistory()"></app-experience>
-  <app-contact [data]="getContactInfo()"></app-contact>
+  <app-intro
+    [data]="getIntroData()"
+  ></app-intro>
+  <app-about
+    [data]="getAboutData()"
+  ></app-about>
+  <app-skills
+    *ngIf="getSkills().skills"
+    [data]="getSkills()"
+  ></app-skills>
+  <app-portfolio
+    *ngIf="getPortfolioData().projects"
+    [data]="getPortfolioData()"
+  ></app-portfolio>
+  <app-experience
+    *ngIf="getHistory().history"
+    [data]="getHistory()"
+  ></app-experience>
+  <app-contact
+    [data]="getContactInfo()"
+  ></app-contact>
 </div>
 <app-footer></app-footer>
 <ngx-spinner type="ball-scale-multiple" bdColor="rgba(3,61,91,50%)"></ngx-spinner>
