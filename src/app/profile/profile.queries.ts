@@ -29,7 +29,7 @@ const preview = groq`
 `
 
 export const indexQuery = groq`
-*[_type == "user" && _id == "84e9e9bf-152f-40d9-bbc3-1b88a5710008"] | order(_createdAt desc) {
+*[_type == "user" && _id == "6b9d71d8-2111-4f1c-8a50-bb587985c3cc"] | order(_createdAt desc) {
   ${preview}
 }
 `
